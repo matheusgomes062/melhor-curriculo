@@ -7,13 +7,6 @@ import {
   MessageSquareHeart,
   Plus,
 } from "lucide-react";
-import {
-  Tooltip,
-  TooltipContent,
-  TooltipProvider,
-  TooltipTrigger,
-} from "@/components/ui/tooltip";
-import { Label } from "./ui/label";
 
 export function Sidebar() {
   return (
