@@ -45,7 +45,7 @@ export function Sidebar() {
             <TooltipTrigger asChild>
               <Link
                 href="#"
-                className={`hover:scale-105 flex items-center self-center px-2 bg-primary rounded-lg text-primary-foreground h-9 w-9 ${expanded ? 'w-48 gap-3' : ''}`}
+                className={`hover:scale-105 flex items-center self-center gap-3 px-2 bg-primary rounded-lg text-primary-foreground h-9 w-9 ${expanded ? 'w-full' : ''}`}
               >
                 <Plus className="h-5 w-5" />
                 <span className="sr-only">Criar Currículo</span>
@@ -75,7 +75,7 @@ export function Sidebar() {
             <TooltipTrigger asChild>
               <Link
                 href="#"
-                className={`flex h-9 w-9 items-center gap-3 px-2 rounded-lg text-muted-foreground transition-colors hover:text-foreground h-9 w-9 ${expanded ? 'h-9 w-52' : ''}`}
+                className={`flex items-center gap-3 px-2 rounded-lg text-muted-foreground transition-colors hover:text-foreground h-9 w-9 ${expanded ? 'h-9 w-52' : ''}`}
               >
                 <MessageSquareHeart className="h-5 w-5" />
                 <span className="sr-only">Análise Profissional</span>
@@ -90,7 +90,7 @@ export function Sidebar() {
             <TooltipTrigger asChild>
               <Link
                 href="#"
-                className={`flex h-9 w-9 items-center gap-3 px-2 rounded-lg text-muted-foreground transition-colors hover:text-foreground h-9 w-9 ${expanded ? 'h-9 w-44' : ''}`}
+                className={`flex items-center gap-3 px-2 rounded-lg text-muted-foreground transition-colors hover:text-foreground h-9 w-9 ${expanded ? 'h-9 w-44' : ''}`}
               >
                 <Folders className="h-5 w-5" />
                 <span className="sr-only">Exemplos</span>
@@ -104,7 +104,7 @@ export function Sidebar() {
       <nav className="mt-auto flex flex-col items-start gap-4 px-3 sm:py-5">
         <Link
           href="#"
-          className={`flex h-9 w-9 items-center gap-3 px-2 rounded-lg text-muted-foreground transition-colors hover:text-foreground h-9 w-9 ${expanded ? 'h-9 w-44' : ''}`}
+          className={`flex items-center gap-3 px-2 rounded-lg text-muted-foreground transition-colors hover:text-foreground h-9 w-9 ${expanded ? 'h-9 w-44' : ''}`}
         >
           <Settings className="h-5 w-5" />
           <span className="sr-only">Settings</span>
