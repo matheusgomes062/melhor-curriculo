@@ -1,6 +1,6 @@
-"use client";
+'use client';
 
-import Link from "next/link";
+import Link from 'next/link';
 import {
   File,
   Folders,
@@ -10,33 +10,40 @@ import {
   Plus,
   ChevronFirst,
   ChevronLast,
-} from "lucide-react";
-import { useState } from "react";
-import { Button } from "./ui/button";
-import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "./ui/tooltip";
+} from 'lucide-react';
+import { useState } from 'react';
+import { Button } from './ui/button';
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger,
+} from './ui/tooltip';
 
 export function Sidebar() {
   const [expanded, setExpanded] = useState(true);
 
   return (
     <aside
-      className={`fixed inset-y-0 left-0 z-10 flex-col border-r bg-background sm:flex transition-all duration-300 ${expanded ? "w-50" : "w-16"}`}
+      className={`fixed inset-y-0 left-0 z-10 flex-col border-r bg-background transition-all duration-300 sm:flex ${expanded ? 'w-auto' : 'w-16'}`}
     >
       <nav className="flex flex-col items-start gap-4 px-3 py-5">
-        <div className={`flex row justify-between items-center px-2 ${expanded ? 'gap-3 w-full' : 'px-0'}`}>
+        <div
+          className={`row flex items-center justify-between ${expanded ? 'w-full gap-3' : 'self-center'}`}
+        >
           <img
             src="https://img.logoipsum.com/243.svg"
             className={`overflow-hidden transition-all ${
-              expanded ? "w-28" : "w-0"
+              expanded ? 'w-28' : 'w-0'
             }`}
             alt=""
           />
           <Button
             onClick={() => setExpanded((curr) => !curr)}
-            className="flex items-center px-2 rounded-lg"
+            className="flex h-9 w-9 items-center rounded-lg"
             variant="outline"
             size="icon"
-            >
+          >
             {expanded ? <ChevronFirst /> : <ChevronLast />}
           </Button>
         </div>
@@ -45,11 +52,13 @@ export function Sidebar() {
             <TooltipTrigger asChild>
               <Link
                 href="#"
-                className={`hover:scale-105 flex items-center self-center gap-3 px-2 bg-primary rounded-lg text-primary-foreground h-9 w-9 ${expanded ? 'w-full' : ''}`}
+                className={`flex h-9 w-9 items-center gap-3 self-center rounded-lg bg-primary px-2 text-primary-foreground hover:scale-105 ${expanded ? 'w-full' : 'self-center'}`}
               >
                 <Plus className="h-5 w-5" />
                 <span className="sr-only">Criar Currículo</span>
-                <span className={`${expanded ? "block" : "hidden"}`}>Criar Currículo</span>
+                <span className={`${expanded ? 'block' : 'hidden'}`}>
+                  Criar Currículo
+                </span>
               </Link>
             </TooltipTrigger>
             <TooltipContent side="right">Criar Currículo</TooltipContent>
@@ -60,11 +69,13 @@ export function Sidebar() {
             <TooltipTrigger asChild>
               <Link
                 href="#"
-                className={`flex h-9 w-9 items-center gap-3 px-2 rounded-lg text-muted-foreground transition-colors hover:text-foreground ${expanded ? 'h-9 w-44' : ''}`}
+                className={`flex h-9 w-auto items-center gap-3 rounded-lg px-2 text-muted-foreground transition-colors hover:text-foreground ${expanded ? 'h-9 w-44' : 'self-center'}`}
               >
                 <File className="h-5 w-5" />
                 <span className="sr-only">Dashboard</span>
-                <span className={`${expanded ? "block" : "hidden"}`}>Dashboard</span>
+                <span className={`${expanded ? 'block' : 'hidden'}`}>
+                  Dashboard
+                </span>
               </Link>
             </TooltipTrigger>
             <TooltipContent side="right">Dashboard</TooltipContent>
@@ -75,11 +86,13 @@ export function Sidebar() {
             <TooltipTrigger asChild>
               <Link
                 href="#"
-                className={`flex items-center gap-3 px-2 rounded-lg text-muted-foreground transition-colors hover:text-foreground h-9 w-9 ${expanded ? 'h-9 w-52' : ''}`}
+                className={`flex h-9 w-auto items-center gap-3 rounded-lg px-2 text-muted-foreground transition-colors hover:text-foreground ${expanded ? 'h-9 w-52' : 'self-center'}`}
               >
                 <MessageSquareHeart className="h-5 w-5" />
                 <span className="sr-only">Análise Profissional</span>
-                <span className={`${expanded ? "block" : "hidden"}`}>Análise Profissional</span>
+                <span className={`${expanded ? 'block' : 'hidden'}`}>
+                  Análise Profissional
+                </span>
               </Link>
             </TooltipTrigger>
             <TooltipContent side="right">Análise Profissional</TooltipContent>
@@ -90,11 +103,13 @@ export function Sidebar() {
             <TooltipTrigger asChild>
               <Link
                 href="#"
-                className={`flex items-center gap-3 px-2 rounded-lg text-muted-foreground transition-colors hover:text-foreground h-9 w-9 ${expanded ? 'h-9 w-44' : ''}`}
+                className={`flex h-9 w-auto items-center gap-3 rounded-lg px-2 text-muted-foreground transition-colors hover:text-foreground ${expanded ? 'h-9 w-44' : 'self-center'}`}
               >
                 <Folders className="h-5 w-5" />
                 <span className="sr-only">Exemplos</span>
-                <span className={`${expanded ? "block" : "hidden"}`}>Exemplos</span>
+                <span className={`${expanded ? 'block' : 'hidden'}`}>
+                  Exemplos
+                </span>
               </Link>
             </TooltipTrigger>
             <TooltipContent side="right">Exemplos</TooltipContent>
@@ -102,14 +117,23 @@ export function Sidebar() {
         </TooltipProvider>
       </nav>
       <nav className="mt-auto flex flex-col items-start gap-4 px-3 sm:py-5">
-        <Link
-          href="#"
-          className={`flex items-center gap-3 px-2 rounded-lg text-muted-foreground transition-colors hover:text-foreground h-9 w-9 ${expanded ? 'h-9 w-44' : ''}`}
-        >
-          <Settings className="h-5 w-5" />
-          <span className="sr-only">Settings</span>
-          <span className={`${expanded ? "block" : "hidden"}`}>Settings</span>
-        </Link>
+        <TooltipProvider>
+          <Tooltip>
+            <TooltipTrigger asChild>
+              <Link
+                href="#"
+                className={`flex h-9 w-auto items-center gap-3 rounded-lg px-2 text-muted-foreground transition-colors hover:text-foreground ${expanded ? 'h-9 w-44' : 'self-center'}`}
+              >
+                <Settings className="h-5 w-5" />
+                <span className="sr-only">Configurações</span>
+                <span className={`${expanded ? 'block' : 'hidden'}`}>
+                  Configurações
+                </span>
+              </Link>
+            </TooltipTrigger>
+            <TooltipContent side="right">Configurações</TooltipContent>
+          </Tooltip>
+        </TooltipProvider>
       </nav>
     </aside>
   );
