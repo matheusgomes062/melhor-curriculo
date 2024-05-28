@@ -2,9 +2,8 @@
 
 import Link from 'next/link';
 import {
-  File,
+  LayoutPanelLeft,
   Folders,
-  MSquare,
   Settings,
   MessageSquareHeart,
   Plus,
@@ -71,7 +70,7 @@ export function Sidebar() {
                 href="#"
                 className={`flex h-9 w-auto items-center gap-3 rounded-lg px-2 text-muted-foreground transition-colors hover:text-foreground ${expanded ? 'h-9 w-44' : 'self-center'}`}
               >
-                <File className="h-5 w-5" />
+                <LayoutPanelLeft className="h-5 w-5" />
                 <span className="sr-only">Dashboard</span>
                 <span className={`${expanded ? 'block' : 'hidden'}`}>
                   Dashboard
