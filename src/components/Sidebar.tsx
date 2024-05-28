@@ -29,7 +29,7 @@ export function Sidebar() {
     >
       <nav className="flex flex-col items-start gap-4 px-3 py-5">
         <div
-          className={`row flex items-center justify-between ${expanded ? 'w-full gap-3' : 'self-center'}`}
+          className={`row flex items-center justify-between ${expanded ? 'w-52 gap-3' : 'self-center'}`}
         >
           <img
             src="https://img.logoipsum.com/243.svg"

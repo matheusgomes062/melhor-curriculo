@@ -1,15 +1,13 @@
+/* eslint-disable @next/next/no-img-element */
 'use client';
 
 import Link from 'next/link';
 import {
-  File,
-  Folders,
-  MSquare,
-  Settings,
-  MessageSquareHeart,
-  Plus,
+  Settings2,
+  LogOut,
   ChevronFirst,
   ChevronLast,
+  User,
 } from 'lucide-react';
 import { useState } from 'react';
 import { Button } from './ui/button';
@@ -20,48 +18,47 @@ import {
   TooltipTrigger,
 } from './ui/tooltip';
 
-export function Sidebar() {
+export function ProfileSidebar() {
   const [expanded, setExpanded] = useState(true);
 
   return (
     <aside
-      className={`fixed inset-y-0 right-0 z-10 flex-col border-r bg-background transition-all duration-300 sm:flex ${expanded ? 'w-auto' : 'w-16'}`}
+      className={`fixed inset-y-0 right-0 z-10 flex-col border-l bg-background transition-all duration-300 sm:flex ${expanded ? 'w-auto' : 'w-16'}`}
     >
-      <nav className="flex flex-col items-start gap-4 px-3 py-5">
+      <nav className="flex flex-col items-start gap-4 px-4 py-5">
         <div
-          className={`row flex items-center justify-between ${expanded ? 'w-full gap-3' : 'self-center'}`}
+          className={`flex flex-col items-center justify-between ${expanded ? 'w-36 gap-3' : 'gap-3 self-center'}`}
         >
-          <img
-            src="https://img.logoipsum.com/243.svg"
-            className={`overflow-hidden transition-all ${
-              expanded ? 'w-28' : 'w-0'
-            }`}
-            alt=""
-          />
           <Button
             onClick={() => setExpanded((curr) => !curr)}
-            className="flex h-9 w-9 items-center rounded-lg"
+            className="flex h-9 w-9 items-center self-start rounded-lg"
             variant="outline"
             size="icon"
           >
-            {expanded ? <ChevronFirst /> : <ChevronLast />}
+            {expanded ? <ChevronLast /> : <ChevronFirst />}
           </Button>
+
+          <img
+            src="https://randomuser.me/api/portraits/women/51.jpg"
+            className={`w-full overflow-hidden rounded-full border-2`}
+            alt=""
+          />
         </div>
         <TooltipProvider>
           <Tooltip>
             <TooltipTrigger asChild>
               <Link
                 href="#"
-                className={`flex h-9 w-9 items-center gap-3 self-center rounded-lg bg-primary px-2 text-primary-foreground hover:scale-105 ${expanded ? 'w-full' : 'self-center'}`}
+                className={`flex h-9 w-9 items-center justify-start gap-3 self-center rounded-lg bg-primary px-2 text-primary-foreground ${expanded ? 'w-full' : 'self-center'}`}
               >
-                <Plus className="h-5 w-5" />
-                <span className="sr-only">Criar Currículo</span>
+                <User className="h-5 w-5" />
+                <span className="sr-only">Ver Perfil</span>
                 <span className={`${expanded ? 'block' : 'hidden'}`}>
-                  Criar Currículo
+                  Ver Perfil
                 </span>
               </Link>
             </TooltipTrigger>
-            <TooltipContent side="right">Criar Currículo</TooltipContent>
+            <TooltipContent side="left">Ver Perfil</TooltipContent>
           </Tooltip>
         </TooltipProvider>
         <TooltipProvider>
@@ -71,48 +68,14 @@ export function Sidebar() {
                 href="#"
                 className={`flex h-9 w-auto items-center gap-3 rounded-lg px-2 text-muted-foreground transition-colors hover:text-foreground ${expanded ? 'h-9 w-44' : 'self-center'}`}
               >
-                <File className="h-5 w-5" />
-                <span className="sr-only">Dashboard</span>
+                <Settings2 className="h-5 w-5" />
+                <span className="sr-only">Editar Perfil</span>
                 <span className={`${expanded ? 'block' : 'hidden'}`}>
-                  Dashboard
+                  Editar Perfil
                 </span>
               </Link>
             </TooltipTrigger>
-            <TooltipContent side="right">Dashboard</TooltipContent>
-          </Tooltip>
-        </TooltipProvider>
-        <TooltipProvider>
-          <Tooltip>
-            <TooltipTrigger asChild>
-              <Link
-                href="#"
-                className={`flex h-9 w-auto items-center gap-3 rounded-lg px-2 text-muted-foreground transition-colors hover:text-foreground ${expanded ? 'h-9 w-52' : 'self-center'}`}
-              >
-                <MessageSquareHeart className="h-5 w-5" />
-                <span className="sr-only">Análise Profissional</span>
-                <span className={`${expanded ? 'block' : 'hidden'}`}>
-                  Análise Profissional
-                </span>
-              </Link>
-            </TooltipTrigger>
-            <TooltipContent side="right">Análise Profissional</TooltipContent>
-          </Tooltip>
-        </TooltipProvider>
-        <TooltipProvider>
-          <Tooltip>
-            <TooltipTrigger asChild>
-              <Link
-                href="#"
-                className={`flex h-9 w-auto items-center gap-3 rounded-lg px-2 text-muted-foreground transition-colors hover:text-foreground ${expanded ? 'h-9 w-44' : 'self-center'}`}
-              >
-                <Folders className="h-5 w-5" />
-                <span className="sr-only">Exemplos</span>
-                <span className={`${expanded ? 'block' : 'hidden'}`}>
-                  Exemplos
-                </span>
-              </Link>
-            </TooltipTrigger>
-            <TooltipContent side="right">Exemplos</TooltipContent>
+            <TooltipContent side="left">Editar Perfil</TooltipContent>
           </Tooltip>
         </TooltipProvider>
       </nav>
@@ -124,14 +87,16 @@ export function Sidebar() {
                 href="#"
                 className={`flex h-9 w-auto items-center gap-3 rounded-lg px-2 text-muted-foreground transition-colors hover:text-foreground ${expanded ? 'h-9 w-44' : 'self-center'}`}
               >
-                <Settings className="h-5 w-5" />
-                <span className="sr-only">Configurações</span>
-                <span className={`${expanded ? 'block' : 'hidden'}`}>
-                  Configurações
+                <LogOut className="h-5 w-5 text-destructive" />
+                <span className="sr-only">Sair</span>
+                <span
+                  className={`${expanded ? 'block text-destructive' : 'hidden'}`}
+                >
+                  Sair
                 </span>
               </Link>
             </TooltipTrigger>
-            <TooltipContent side="right">Configurações</TooltipContent>
+            <TooltipContent side="left">Sair</TooltipContent>
           </Tooltip>
         </TooltipProvider>
       </nav>
