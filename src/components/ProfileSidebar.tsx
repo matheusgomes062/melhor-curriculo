@@ -19,28 +19,21 @@ import {
 } from './ui/tooltip';
 
 export function ProfileSidebar() {
-  const [expanded, setExpanded] = useState(true);
+  const [expanded, setExpanded] = useState(false);
 
   return (
     <aside
-      className={`fixed inset-y-0 right-0 z-10 flex-col border-l bg-background transition-all duration-300 sm:flex ${expanded ? 'w-auto' : 'w-16'}`}
+      className={`fixed inset-y-0 right-0 z-10 flex-col border-l bg-background transition-all ease-in-out duration-500 sm:flex w-16 hover:w-[176px]`}
+      onMouseEnter={() => setExpanded(true)}
+      onMouseLeave={() => setExpanded(false)}
     >
       <nav className="flex flex-col items-start gap-4 px-4 py-5">
         <div
           className={`flex flex-col items-center justify-between ${expanded ? 'w-36 gap-3' : 'gap-3 self-center'}`}
         >
-          <Button
-            onClick={() => setExpanded((curr) => !curr)}
-            className="flex h-9 w-9 items-center self-start rounded-lg"
-            variant="outline"
-            size="icon"
-          >
-            {expanded ? <ChevronLast /> : <ChevronFirst />}
-          </Button>
-
           <img
             src="https://randomuser.me/api/portraits/women/51.jpg"
-            className={`w-full overflow-hidden rounded-full border-2`}
+            className={`transition-all duration-500 ease-in-out w-16 ${expanded ? 'w-32' : 'w-16'} overflow-hidden rounded-full border-2`}
             alt=""
           />
         </div>
@@ -49,11 +42,11 @@ export function ProfileSidebar() {
             <TooltipTrigger asChild>
               <Link
                 href="#"
-                className={`flex h-9 w-9 items-center justify-start gap-3 self-center rounded-lg bg-primary px-2 text-primary-foreground ${expanded ? 'w-full' : 'self-center'}`}
+                className={`flex h-9 w-9 items-center justify-start gap-3 self-center rounded-lg bg-primary px-2 text-primary-foreground ${expanded ? 'w-full' : 'self-center'} transition-all duration-500 ease-in-out`}
               >
                 <User className="h-5 w-5" />
                 <span className="sr-only">Ver Perfil</span>
-                <span className={`${expanded ? 'block' : 'hidden'}`}>
+                <span className={`${expanded ? 'block' : 'hidden'} truncate`}>
                   Ver Perfil
                 </span>
               </Link>
@@ -66,11 +59,11 @@ export function ProfileSidebar() {
             <TooltipTrigger asChild>
               <Link
                 href="#"
-                className={`flex h-9 w-auto items-center gap-3 rounded-lg px-2 text-muted-foreground transition-colors hover:text-foreground ${expanded ? 'h-9 w-44' : 'self-center'}`}
+                className={`flex h-9 w-9 items-center justify-start gap-3 self-center rounded-lg px-2 text-muted-foreground hover:text-foreground ${expanded ? 'w-full' : 'self-center'} transition-all duration-500 ease-in-out`}
               >
                 <Settings2 className="h-5 w-5" />
                 <span className="sr-only">Editar Perfil</span>
-                <span className={`${expanded ? 'block' : 'hidden'}`}>
+                <span className={`${expanded ? 'block' : 'hidden'} truncate`}>
                   Editar Perfil
                 </span>
               </Link>
