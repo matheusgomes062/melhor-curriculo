@@ -23,17 +23,21 @@ export function ProfileSidebar() {
 
   return (
     <aside
-      className={`fixed inset-y-0 right-0 z-10 flex-col border-l bg-background transition-all ease-in-out duration-500 sm:flex w-16 hover:w-[176px]`}
+      className={`fixed inset-y-0 right-0 z-10 w-16 flex-col border-l bg-background transition-all duration-500 ease-in-out hover:w-[176px] sm:flex`}
       onMouseEnter={() => setExpanded(true)}
       onMouseLeave={() => setExpanded(false)}
     >
       <nav className="flex flex-col items-start gap-4 px-4 py-5">
         <div
-          className={`flex flex-col items-center justify-between ${expanded ? 'w-36 gap-3' : 'gap-3 self-center'}`}
+          className={`flex flex-col items-center justify-center transition-all duration-500 ease-in-out ${
+            expanded ? 'w-36' : 'w-full'
+          }`}
         >
           <img
             src="https://randomuser.me/api/portraits/women/51.jpg"
-            className={`transition-all duration-500 ease-in-out w-16 ${expanded ? 'w-32' : 'w-16'} overflow-hidden rounded-full border-2`}
+            className={`overflow-hidden rounded-full border-2 transition-all duration-500 ease-in-out ${
+              expanded ? 'w-32' : 'w-10'
+            }`}
             alt=""
           />
         </div>
