@@ -3,5 +3,8 @@
         "activityBar.background": "#342748",
         "titleBar.activeBackground": "#493765",
         "titleBar.activeForeground": "#FCFBFD"
+    },
+    "editor.codeActionsOnSave": {
+        "source.fixAll.eslint": true
     }
 }
